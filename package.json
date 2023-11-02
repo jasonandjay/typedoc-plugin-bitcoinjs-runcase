@@ -1,0 +1,40 @@
+{
+  "name": "typedoc-plugin-bitcoinjs-runcase",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "This is a Typedoc plugin that allows you to load BitcoinJS in a web page and run code online.",
+  "homepage": "https://github.com/jasonandjay/typedoc-plugin-bitcoinjs-runcase#readme",
+  "repository": "git://github.com/jasonandjay/typedoc-plugin-bitcoinjs-runcase.git",
+  "keywords": [
+    "typedoc",
+    "plugin",
+    "BitcoinJS",
+    "typedoc-plugin",
+    "RunCase"
+  ],
+  "scripts": {
+    "build": "npm run clear:dist && npm run prettify:src && npm run lint && esbuild src/index.tsx --platform=node --bundle --external:typedoc --outfile=dist/index.js && tsc -d --emitDeclarationOnly --rootDir src --outDir dist",
+    "clear:dist": "rimraf ./dist",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "prettify:src": "prettier --write ./src",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
+    "esbuild": "^0.19.2",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
+    "typedoc": "^0.24.8",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
