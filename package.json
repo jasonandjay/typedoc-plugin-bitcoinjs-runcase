@@ -1,6 +1,6 @@
 {
   "name": "typedoc-plugin-bitcoinjs-runcase",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,7 @@
     "RunCase"
   ],
   "scripts": {
-    "build": "npm run clear:dist && npm run prettify:src && npm run lint && esbuild src/index.tsx --platform=node --bundle --external:typedoc --outfile=dist/index.js && tsc -d --emitDeclarationOnly --rootDir src --outDir dist",
+    "build": "npm run clear:dist && npm run prettify:src && npm run lint && esbuild src/index.tsx --platform=node --bundle --external:typedoc --outfile=dist/index.js && tsc -d --emitDeclarationOnly --rootDir src --outDir dist && cp src/runCode.js dist",
     "clear:dist": "rimraf ./dist",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
     "prettify:src": "prettier --write ./src",
